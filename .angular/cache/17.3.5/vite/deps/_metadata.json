@@ -1,34 +1,43 @@
 {
-  "hash": "1baf7cdb",
-  "configHash": "902382ab",
-  "lockfileHash": "6299d7bd",
-  "browserHash": "3bf93375",
+  "hash": "6b76ddf1",
+  "configHash": "dc57ed11",
+  "lockfileHash": "b35b4fce",
+  "browserHash": "94707bc9",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "47d71e93",
+      "fileHash": "a70d1bc5",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "03707e09",
+      "fileHash": "49445bb3",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "9a629d77",
+      "fileHash": "21de94b8",
       "needsInterop": false
+    },
+    "crypto-js": {
+      "src": "../../../../../node_modules/crypto-js/index.js",
+      "file": "crypto-js.js",
+      "fileHash": "c85557a8",
+      "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-ZQYC46LV": {
-      "file": "chunk-ZQYC46LV.js"
+    "chunk-EHOLDBV4": {
+      "file": "chunk-EHOLDBV4.js"
     },
-    "chunk-7XNSWP76": {
-      "file": "chunk-7XNSWP76.js"
+    "chunk-KBNMA2UB": {
+      "file": "chunk-KBNMA2UB.js"
+    },
+    "chunk-X6JV76XL": {
+      "file": "chunk-X6JV76XL.js"
     }
   }
 }

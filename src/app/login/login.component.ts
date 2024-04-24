@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { Router } from '@angular/router';
+import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -36,7 +37,11 @@ export class LoginComponent {
         accessDenied:"true",
        }
        
-      sessionStorage.setItem("BillInfo", JSON.stringify(BillInfo))
+       const encryptedBillInfo = CryptoJS.AES.encrypt(JSON.stringify(BillInfo), 'SoYouWant2h@ckerh,h$h$h#@@@koko').toString();
+
+ 
+    sessionStorage.setItem("BillInfo", encryptedBillInfo);
+
 
       if(BillInfo.accessDenied==="true") {
         this.router.navigate(['/access-denied']);
