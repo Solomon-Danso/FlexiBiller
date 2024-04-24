@@ -1,0 +1,37 @@
+.login{
+
+  /* From https://css.glass */
+background: "#DFE8F2";
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(19.8px);
+-webkit-backdrop-filter: blur(19.8px);
+border: 1px solid rgba(131, 119, 119, 0.98);
+
+}
+
+input{
+
+  /* From https://css.glass */
+background: "#DFE8F2";
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(19.8px);
+-webkit-backdrop-filter: blur(19.8px);
+border: 2px solid black;
+padding: 1rem;
+
+}
+
+button{
+  background: #26293C;
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(19.8px);
+-webkit-backdrop-filter: blur(19.8px);
+border: 2px solid #2D334A;
+padding: 1rem;
+color:aqua;
+font-size: 1.3rem;
+font-family: 'Open Sans';
+}
