@@ -24,4 +24,9 @@ export const routes: Routes = [
     component:PaymentHistoryComponent
   },
 
+  {
+    path: '**',
+    redirectTo: 'access-denied'
+  }
+
 ];
