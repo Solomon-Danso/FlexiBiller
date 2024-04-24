@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,5 +11,13 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+
+  constructor(private router: Router) {}
+
+paymentHistory(){
+  this.router.navigate(['/payment-history']);
+}
+
+
 
 }
