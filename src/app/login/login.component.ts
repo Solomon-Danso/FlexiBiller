@@ -17,6 +17,45 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
 
+   handleLogin = async () =>{
+
+    const username = (document.getElementById('username') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+
+
+    try{
+      const formData = new FormData();
+
+      formData.append("Username",username)
+      formData.append("Password",password)
+
+      const response = await fetch("http://localhost:5000/api/Biller/Login",{
+        method: "POST",
+        body: formData
+      })
+
+      const data = await response.json();
+
+      if (response.ok){
+
+        console.log(data)
+        this.router.navigate(['/dashboard']);
+      }
+      else{
+        alert(data.message)
+      }
+
+
+
+
+
+
+    }catch(err){
+      console.log(err)
+    }
+
+  }
+
  
 
   login() {
@@ -32,7 +71,6 @@ export class LoginComponent {
 
       const BillInfo = {
         shortName:"crccu",
-        isLoggedIn: "1",
         isInvoiceSent: "1",
         accessDenied:"true",
        }
