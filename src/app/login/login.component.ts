@@ -38,8 +38,50 @@ export class LoginComponent {
 
       if (response.ok){
 
-        console.log(data)
-        this.router.navigate(['/dashboard']);
+        this.handleCheck(data.shortName)
+      }
+      else{
+        alert(data.message)
+      }
+
+
+
+
+
+
+    }catch(err){
+      console.log(err)
+    }
+
+  }
+
+
+  handleCheck = async (shortName: string) =>{
+
+    
+
+    try{
+       
+      const response = await fetch("http://localhost:5000/api/Biller/ViewBillInst?ShortName="+shortName,{
+        method: "GET",
+       
+      })
+
+      const data = await response.json();
+
+      if (response.ok){
+
+        const encryptedBillInfo = CryptoJS.AES.encrypt(JSON.stringify(data), 'SoYouWant2h@ckerh,h$h$h#@@@koko').toString();
+        sessionStorage.setItem("BillInfo", encryptedBillInfo);
+
+        if(data.accessDenied==="true") {
+          this.router.navigate(['/access-denied']);
+        }
+        else{
+          this.router.navigate(['/dashboard']);
+        }
+
+       
       }
       else{
         alert(data.message)
@@ -58,51 +100,6 @@ export class LoginComponent {
 
  
 
-  login() {
-    // Retrieve input values
-    const username = (document.getElementById('username') as HTMLInputElement).value;
-    const password = (document.getElementById('password') as HTMLInputElement).value;
-
-   
-
-
-
-    if (username === 'JAdade@gmail.com' && password === 'Password1') {
-
-      const BillInfo = {
-        shortName:"crccu",
-        isInvoiceSent: "1",
-        accessDenied:"true",
-       }
-       
-       const encryptedBillInfo = CryptoJS.AES.encrypt(JSON.stringify(BillInfo), 'SoYouWant2h@ckerh,h$h$h#@@@koko').toString();
-
- 
-    sessionStorage.setItem("BillInfo", encryptedBillInfo);
-
-
-      if(BillInfo.accessDenied==="true") {
-        this.router.navigate(['/access-denied']);
-      }
-      else{
-        this.router.navigate(['/dashboard']);
-      }
-
-
-
-
-
-
-      
-
-
-    } else {
-      // Handle incorrect credentials
-      alert('Invalid username or password');
-    }
-
-
-  }
 
 
 
