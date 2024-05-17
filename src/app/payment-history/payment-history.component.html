@@ -1,10 +1,83 @@
 <app-header></app-header>
 
-<div class="column full-center  "  style=" height:100%; background-color: azure; ">
+<div class="container">
+  <h1>Software Subscription History</h1>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Index Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> Index </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{ getIndex(i) }} </td>
+      </ng-container>
 
-  <p style="font-size: 4rem;">Software Subscription History</p><br/>
-  <P style="font-size: 2rem;">Software Subscription History will be displayed here</P>
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+      </ng-container>
 
+      <ng-container matColumnDef="instituitionType">
+        <th mat-header-cell *matHeaderCellDef> Instituition Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.instituitionType}} </td>
+      </ng-container>
+
+      <!-- Institution Name Column -->
+      <ng-container matColumnDef="instituitionName">
+        <th mat-header-cell *matHeaderCellDef> Institution Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.instituitionName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="billingType">
+        <th mat-header-cell *matHeaderCellDef> Billing Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.billingType}} </td>
+      </ng-container>
+      <!-- Amount Paid Column -->
+      <ng-container matColumnDef="amountPaid">
+        <th mat-header-cell *matHeaderCellDef> Amount Paid </th>
+        <td mat-cell *matCellDef="let element"> {{element.amountPaid | currency:element.currency}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="packageType">
+        <th mat-header-cell *matHeaderCellDef> Package Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.packageType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="branches">
+        <th mat-header-cell *matHeaderCellDef> Branches </th>
+        <td mat-cell *matCellDef="let element"> {{element.branches}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="users">
+        <th mat-header-cell *matHeaderCellDef> Users </th>
+        <td mat-cell *matCellDef="let element"> {{element.users}} </td>
+      </ng-container>
+
+
+      <!-- Payment Date Column -->
+      <ng-container matColumnDef="paymentDate">
+        <th mat-header-cell *matHeaderCellDef> Payment Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.paymentDate | date}} </td>
+      </ng-container>
+
+      <!-- Start Date Column -->
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDate | date}} </td>
+      </ng-container>
+
+      <!-- End Date Column -->
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.endDate | date}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <!-- Paginator -->
+    <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10, 100, 1000, 10000, 100000]" showFirstLastButtons>
+    </mat-paginator>
   </div>
+</div>
 
-  <app-footer></app-footer>
+
